@@ -7,7 +7,7 @@
         android:layout_height="match_parent"
         tools:context=".RegisterActivity"
         android:background="@color/colorPrimary">
-    <TextView
+    <EditText
             android:id="@+id/order_name"
             android:layout_width="263dp"
             android:layout_height="39dp"
@@ -23,7 +23,7 @@
             android:layout_marginRight="8dp"
             app:layout_constraintHorizontal_bias="0.485"/>
 
-    <TextView
+    <EditText
             android:background="@color/et_background"
             android:id="@+id/phone"
             android:hint="@string/phone"
@@ -39,7 +39,7 @@
             android:layout_marginRight="8dp"
             app:layout_constraintHorizontal_bias="0.485"/>
 
-    <TextView
+    <EditText
             android:background="@color/et_background"
             android:id="@+id/value_min"
             android:hint="@string/hint_min_value"
@@ -54,7 +54,7 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginLeft="8dp"
             app:layout_constraintHorizontal_bias="0.484"/>
-    <TextView
+    <EditText
             android:background="@color/et_background"
             android:id="@+id/value_max"
             android:hint="@string/hint_max_value"
@@ -80,7 +80,7 @@
             android:shadowDx="0"
             android:shadowDy="0"
             android:shadowRadius="5"
-            android:id="@+id/btn_Login"
+            android:id="@+id/Register_Order"
             android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"

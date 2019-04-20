@@ -9,4 +9,7 @@
     <string name="hint_max_value">Max Value</string>
     <string name="hint_min_value">Min Value</string>
     <string name="btn_register">Register</string>
+    <string name="txt_logout_exit">Logout/Exit</string>
+    <string name="txt_about">About</string>
+    <string name="txt_register">Register</string>
 </resources>

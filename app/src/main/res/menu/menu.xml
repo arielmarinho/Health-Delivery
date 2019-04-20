@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:title="Register"
+    <item android:title="@string/txt_register"
           android:id="@+id/Register"/>
 
     <item
             android:id="@+id/About"
-            android:title="About"
+            android:title="@string/txt_about"
     />
     <item
             android:id="@+id/Logout"
-            android:title="Logout"
+            android:title="@string/txt_logout_exit"
     />
 
 </menu>
