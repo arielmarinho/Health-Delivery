@@ -12,4 +12,5 @@
     <string name="txt_logout_exit">Logout/Exit</string>
     <string name="txt_about">About</string>
     <string name="txt_register">Register</string>
+    <string name="title_activity_location">Map</string>
 </resources>
