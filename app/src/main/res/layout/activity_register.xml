@@ -24,6 +24,7 @@
             app:layout_constraintHorizontal_bias="0.485"/>
 
     <EditText
+            android:inputType="phone"
             android:background="@color/et_background"
             android:id="@+id/phone"
             android:hint="@string/phone"
@@ -42,6 +43,7 @@
     <EditText
             android:background="@color/et_background"
             android:id="@+id/value_min"
+            android:inputType="number"
             android:hint="@string/hint_min_value"
             android:layout_width="263dp"
             android:layout_height="39dp"
@@ -56,6 +58,7 @@
             app:layout_constraintHorizontal_bias="0.484"/>
     <EditText
             android:background="@color/et_background"
+            android:inputType="number"
             android:id="@+id/value_max"
             android:hint="@string/hint_max_value"
             android:layout_width="263dp"
@@ -82,9 +85,11 @@
             android:shadowRadius="5"
             android:id="@+id/Register_Order"
             android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="8dp"
             app:layout_constraintHorizontal_bias="0.497"
             android:layout_marginTop="28dp"
             app:layout_constraintTop_toBottomOf="@+id/value_max"/>

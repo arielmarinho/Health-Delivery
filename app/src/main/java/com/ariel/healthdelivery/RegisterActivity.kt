@@ -1,7 +1,10 @@
 package com.ariel.healthdelivery
 
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.app.ActivityCompat
 import android.widget.Toast
 import com.ariel.healthdelivery.model.Order
 import com.google.firebase.auth.FirebaseAuth
@@ -9,11 +12,15 @@ import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
         Register_Order.setOnClickListener{
             saveOrder()
+            startActivity(Intent(this, LocationActivity::class.java))
+
+
         }
 
     }
@@ -30,8 +37,8 @@ class RegisterActivity : AppCompatActivity() {
         ref.child(orderId).setValue(order).addOnCompleteListener{
             Toast.makeText(applicationContext,"Order saved sucessfully", Toast.LENGTH_SHORT).show()
         }
+        return
 
     }
-
 
 }
