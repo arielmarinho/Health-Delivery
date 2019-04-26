@@ -26,7 +26,7 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
     private  var locationGps: Location? = null
 
     companion object {
-        private const val LOCATION_PERMISSION_REQUEST_CODE = 1
+        const val LOCATION_PERMISSION_REQUEST_CODE = 1
 
     }
 
@@ -37,7 +37,6 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_location)
         getLocation()
-        setUpMap()
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
@@ -45,15 +44,6 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
 
     }
 
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
     @SuppressLint("MissingPermission")
     override fun onMapReady(googleMap: GoogleMap) {
         val localizacao = LatLng(locationGps!!.latitude, locationGps!!.longitude)
@@ -67,18 +57,7 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
 
 
     }
-    private fun setUpMap(){
-        if (ActivityCompat.checkSelfPermission(this,
-                android.Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED ){
-            ActivityCompat.requestPermissions(this,
-                arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
-                LocationActivity.LOCATION_PERMISSION_REQUEST_CODE
 
-            )
-            return
-
-        }
-    }
     @SuppressLint("MissingPermission")
     private fun getLocation(){
         locationMenager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
@@ -110,5 +89,4 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
         }
 
     }
-
 }

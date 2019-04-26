@@ -14,6 +14,9 @@ class OrdersActivity : AppCompatActivity() {
         fab_plus.setOnClickListener{
             startActivity(Intent(this,RegisterActivity::class.java))
         }
+        fab_call.setOnClickListener{
+            startActivity(Intent(this,CallActivity::class.java))
+        }
 
     }
 

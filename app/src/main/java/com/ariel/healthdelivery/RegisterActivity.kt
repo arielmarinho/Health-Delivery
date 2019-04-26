@@ -9,6 +9,7 @@ import android.widget.Toast
 import com.ariel.healthdelivery.model.Order
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : AppCompatActivity() {
@@ -16,12 +17,38 @@ class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
+
         Register_Order.setOnClickListener{
-            saveOrder()
-            startActivity(Intent(this, LocationActivity::class.java))
 
 
-        }
+            if (order_name.text.toString().isNullOrEmpty() || phone.text.toString().isNullOrEmpty() ||
+                value_min.text.toString().isNullOrEmpty()|| value_max.text.toString().isNullOrEmpty()) {
+                Toast.makeText(
+                    applicationContext,
+                    "Preencha os todos os campos", Toast.LENGTH_SHORT
+                ).show()
+
+            }
+            else if(value_min.text.toString().toDouble() >= value_max.text.toString().toDouble()) {
+
+                Toast.makeText(
+                    applicationContext,
+                    "Valor minimo nao pode ser maior ou igual ao  valor maximo", Toast.LENGTH_SHORT
+                ).show()
+            }
+            else if(value_max.text.toString().toDouble() <= value_min.text.toString().toDouble()) {
+
+                Toast.makeText(
+                    applicationContext,
+                    "Valor maximo nao pode ser menor ou igual ao  valor minimo", Toast.LENGTH_SHORT
+                ).show()
+            }
+            else {
+                setUpMap()
+                saveOrder()
+                startActivity(Intent(this, LocationActivity::class.java))
+            }
+            }
 
     }
 
@@ -39,6 +66,18 @@ class RegisterActivity : AppCompatActivity() {
         }
         return
 
+    }
+    private fun setUpMap(){
+        if (ActivityCompat.checkSelfPermission(this,
+                android.Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED ){
+            ActivityCompat.requestPermissions(this,
+                arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
+                LocationActivity.LOCATION_PERMISSION_REQUEST_CODE
+
+            )
+            return
+
+        }
     }
 
 }
