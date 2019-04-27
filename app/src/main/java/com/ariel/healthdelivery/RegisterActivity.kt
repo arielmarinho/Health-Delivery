@@ -1,5 +1,6 @@
 package com.ariel.healthdelivery
 
+import android.app.DownloadManager
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.support.v7.app.AppCompatActivity
@@ -13,8 +14,7 @@ import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : AppCompatActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
+  override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
@@ -44,9 +44,11 @@ class RegisterActivity : AppCompatActivity() {
                 ).show()
             }
             else {
-                setUpMap()
-                saveOrder()
-                startActivity(Intent(this, LocationActivity::class.java))
+                if (setUpMap()){
+
+                    saveOrder()
+                    startActivity(Intent(this, LocationActivity::class.java))
+                }
             }
             }
 
@@ -67,15 +69,33 @@ class RegisterActivity : AppCompatActivity() {
         return
 
     }
-    private fun setUpMap(){
+    private fun setUpMap(): Boolean{
         if (ActivityCompat.checkSelfPermission(this,
-                android.Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED ){
-            ActivityCompat.requestPermissions(this,
+                android.Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED ) {
+            ActivityCompat.requestPermissions(
+                this,
                 arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
                 LocationActivity.LOCATION_PERMISSION_REQUEST_CODE
 
             )
-            return
+            return false
+
+
+        }
+        else{
+            return true
+        }
+
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if(requestCode == LocationActivity.LOCATION_PERMISSION_REQUEST_CODE){
+            if (grantResults[0]== 0 ){
+                saveOrder()
+                startActivity(Intent(this, LocationActivity::class.java))
+
+            }
 
         }
     }
