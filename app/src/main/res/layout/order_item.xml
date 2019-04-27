@@ -36,6 +36,10 @@
                     android:id="@+id/show_max"
 
             />
+            <Button android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Delete"
+            android:id="@+id/delete"/>
         </LinearLayout>
     </android.support.v7.widget.CardView>
 </LinearLayout>

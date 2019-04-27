@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">HealthDelivery</string>
+    <string name="hint_password">Senha</string>
+    <string name="btn_create_account">Criar Conta</string>
+    <string name="hint_confirm_password">Confirmar Senha</string>
+    <string name="phone">Telefone</string>
+    <string name="hint_max_value">Valor Maximo</string>
+    <string name="hint_min_value">Valor Minimo</string>
+    <string name="btn_register">Registrar</string>
+    <string name="txt_logout_exit">Logout/Sair</string>
+    <string name="txt_about">Sobre</string>
+    <string name="txt_register">Registrar</string>
+    <string name="title_activity_location">Mapa</string>
+</resources>

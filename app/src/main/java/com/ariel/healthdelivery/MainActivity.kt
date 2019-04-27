@@ -21,6 +21,7 @@ import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.order_item.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -35,6 +36,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val orders: ArrayList<String> = ArrayList()
+        fun deleteOrder(order_id: String) {
+
+
+        }
         setupControls()
 
 
@@ -101,16 +106,15 @@ class MainActivity : AppCompatActivity() {
                 viewHolder.setModel(model)
             }
         }
+
         recyclerView.adapter = mAdapter
-      //  recyclerView.addOnItemTouchListener(ItemLongPressListener(this,
-        //    recyclerView!!, object : ItemLongPressListener.ClickListener {
-          //      override fun onClick(view: View, position: Int) {}
-            //    override fun onLongClick(view: View?, position: Int) {
-              //      showActionsDialog(position)
-             //   }
-           // }))
+
 
     }
+
+
+
+
 
 }
 

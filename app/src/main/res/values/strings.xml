@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">HealthDelivery</string>
-    <string name="hint_Email">Email</string>
+    <string name="hint_Email" translatable="false">Email</string>
     <string name="hint_password">Password</string>
     <string name="btn_create_account">Create Account</string>
     <string name="hint_confirm_password">Confirm Password</string>
-    <string name="develop_name">Ariel Vaz De Alcantara Marinho</string>
+    <string name="develop_name" translatable="false">Ariel Vaz De Alcantara Marinho</string>
     <string name="phone">Phone</string>
     <string name="hint_max_value">Max Value</string>
     <string name="hint_min_value">Min Value</string>
