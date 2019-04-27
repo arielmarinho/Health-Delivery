@@ -12,4 +12,5 @@
     <string name="txt_about">Sobre</string>
     <string name="txt_register">Registrar</string>
     <string name="title_activity_location">Mapa</string>
+    <string name="btn_edit">Editar</string>
 </resources>
