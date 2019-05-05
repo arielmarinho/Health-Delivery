@@ -93,7 +93,8 @@ class RegisterActivity : AppCompatActivity() {
         if(requestCode == LocationActivity.LOCATION_PERMISSION_REQUEST_CODE){
             if (grantResults[0]== 0 ){
                 saveOrder()
-                startActivity(Intent(this, LocationActivity::class.java))
+                startActivity(Intent(this, MainActivity::class.java))
+                //startActivity(Intent(this, LocationActivity::class.java))
 
             }
 

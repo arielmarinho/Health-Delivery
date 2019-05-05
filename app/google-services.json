@@ -13,7 +13,12 @@
           "package_name": "com.ariel.healthdelivery"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "880956956947-b594lmg301qbs4dh25h1khrtb8g08vuh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAmk7hAsIM8hSRFLWSmSLAguTtLZjp9t24"
@@ -25,6 +30,13 @@
             {
               "client_id": "880956956947-b594lmg301qbs4dh25h1khrtb8g08vuh.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "880956956947-ut05njvl6pug7cgrtvln8rni4fovk8t0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.HealthDelivery.HealthDelivery"
+              }
             }
           ]
         }
