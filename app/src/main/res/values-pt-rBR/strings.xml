@@ -13,4 +13,5 @@
     <string name="txt_register">Registrar</string>
     <string name="title_activity_location">Mapa</string>
     <string name="btn_edit">Editar</string>
+    <string name="delete">Deletar</string>
 </resources>

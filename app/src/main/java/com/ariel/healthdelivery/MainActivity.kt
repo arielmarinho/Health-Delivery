@@ -86,7 +86,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupControls() {
         val recyclerView = findViewById(R.id.list_view) as RecyclerView
-        recyclerView.setHasFixedSize(false)
+        recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(this)
         val mQuery = mDatabase!!.orderByKey()
         val mOptions = FirebaseRecyclerOptions.Builder<Order>()
