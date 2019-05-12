@@ -23,31 +23,19 @@ import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.order_item.*
 
-
 class MainActivity : AppCompatActivity() {
 
     val mAuth = FirebaseAuth.getInstance()
     var mDatabase = FirebaseDatabase.getInstance().getReference("orders")
     private var mAdapter: FirebaseRecyclerAdapter<Order, OrderViewHolder>? = null
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        val orders: ArrayList<String> = ArrayList()
-        fun deleteOrder(order_id: String) {
-
-
+            super.onCreate(savedInstanceState)
+            setContentView(R.layout.activity_main)
+            val orders: ArrayList<String> = ArrayList()
+            fun deleteOrder(order_id: String) {
         }
         setupControls()
-
-
-
-
-
-
-
 
         val navigationView = nav as BottomNavigationView
         navigationView.setOnNavigationItemSelectedListener { item ->
@@ -56,24 +44,18 @@ class MainActivity : AppCompatActivity() {
                     val dialog = AlertDialog.Builder(this)
                     dialog.setTitle("Are You Sure!")
                     dialog.setMessage("Do you want close this app whithout Logout?")
-                    dialog.setPositiveButton("Yes",{ dialogInterface: DialogInterface, i: Int ->
-                        finish()
-                    })
-                    dialog.setNegativeButton("No", { dialogInterface: DialogInterface, i: Int ->
-                        FirebaseAuth.getInstance().signOut()
-                        startActivity(Intent(this, LoginActivity::class.java))
-                    })
+                    dialog.setPositiveButton("Yes",{ dialogInterface: DialogInterface, i: Int -> finish() })
+                    dialog.setNegativeButton("No", {
+                            dialogInterface: DialogInterface, i: Int -> FirebaseAuth.getInstance().signOut()
+                            startActivity(Intent(this, LoginActivity::class.java))
+                        }
+                    )
                     dialog.show()
-
-
-
                 }
                 R.id.About ->
                     startActivity(Intent(this,AboutActivity:: class.java))
                 R.id.Register ->
                     startActivity(Intent(this,OrdersActivity:: class.java))
-
-
             }
                 true
         }
@@ -81,7 +63,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-
     }
 
     private fun setupControls() {
@@ -93,28 +74,21 @@ class MainActivity : AppCompatActivity() {
             .setQuery(mQuery, Order::class.java)
             .setLifecycleOwner(this)
             .build()
-        mAdapter = object : FirebaseRecyclerAdapter<Order, OrderViewHolder>(mOptions) {
+            mAdapter = object : FirebaseRecyclerAdapter<Order, OrderViewHolder>(mOptions) {
             override fun getItem(position: Int): Order {
                 return super.getItem(position)
             }
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrderViewHolder {
                 val view = LayoutInflater.from(parent!!.context)
                     .inflate(R.layout.order_item, parent, false)
-                return OrderViewHolder(view)
+                return OrderViewHolder(view) {
+                    Toast.makeText(this@MainActivity, it.name, Toast.LENGTH_SHORT).show()
+                }
             }
             override fun onBindViewHolder(viewHolder: OrderViewHolder, position: Int, model: Order) {
                 viewHolder.setModel(model)
             }
         }
-
         recyclerView.adapter = mAdapter
-
-
     }
-
-
-
-
-
 }
-

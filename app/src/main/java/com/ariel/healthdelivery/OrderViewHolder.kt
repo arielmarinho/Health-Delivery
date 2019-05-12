@@ -1,5 +1,6 @@
 package com.ariel.healthdelivery
 
+import android.content.Context
 import android.content.Intent
 import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.widget.CardView
@@ -10,7 +11,8 @@ import android.widget.TextView
 import com.ariel.healthdelivery.model.Order
 import com.google.firebase.database.FirebaseDatabase
 
-class OrderViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+class OrderViewHolder(itemView: View,
+                      val clickListener: (Order) -> Unit) : RecyclerView.ViewHolder(itemView){
     var mDatabase = FirebaseDatabase.getInstance().getReference("orders")
     private val name: TextView
     private val phone: TextView
@@ -25,8 +27,7 @@ class OrderViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         min = itemView.findViewById(R.id.show_min) as TextView
         max = itemView.findViewById(R.id.show_max) as TextView
         delete = itemView.findViewById(R.id.delete) as Button
-        card = itemView.findViewById(R.id.card) as CardView
-
+        card = itemView.findViewById(R.id.card)as CardView
     }
     fun setModel(model: Order?) {
         if (model == null || model!!.name == null) return
@@ -37,12 +38,18 @@ class OrderViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
             max.text = model.max.toString()
             delete.setOnClickListener {
                 deleteToDoItem(model.order_id!!)
-
+            }
+        card.setOnClickListener {
+            clickListener(model)
+            //deleteToDoItem(model.order_id!!)
         }
-
-
     }
+
     private fun deleteToDoItem(todoId: String) {
         mDatabase!!.child(todoId).setValue(null)
+
     }
+
+
+
 }

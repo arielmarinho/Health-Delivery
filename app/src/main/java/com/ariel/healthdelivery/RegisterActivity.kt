@@ -20,14 +20,12 @@ class RegisterActivity : AppCompatActivity() {
 
         Register_Order.setOnClickListener{
 
-
             if (order_name.text.toString().isNullOrEmpty() || phone.text.toString().isNullOrEmpty() ||
                 value_min.text.toString().isNullOrEmpty()|| value_max.text.toString().isNullOrEmpty()) {
                 Toast.makeText(
                     applicationContext,
                     "Preencha os todos os campos", Toast.LENGTH_SHORT
                 ).show()
-
             }
             else if(value_min.text.toString().toDouble() >= value_max.text.toString().toDouble()) {
 
