@@ -83,6 +83,15 @@ class MainActivity : AppCompatActivity() {
                     .inflate(R.layout.order_item, parent, false)
                 return OrderViewHolder(view) {
                     Toast.makeText(this@MainActivity, it.name, Toast.LENGTH_SHORT).show()
+
+
+                    val intent = Intent(this@MainActivity,EditActivity::class.java)
+                    intent.putExtra("order_id", it.order_id)
+                    intent.putExtra("name", it.name)
+                    intent.putExtra("phone", it.phone)
+                    intent.putExtra("value_min", it.min.toString())
+                    intent.putExtra("value_max", it.max.toString())
+                    startActivity(Intent(intent))
                 }
             }
             override fun onBindViewHolder(viewHolder: OrderViewHolder, position: Int, model: Order) {
